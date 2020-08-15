@@ -1,0 +1,23 @@
+{
+  "name": "en-path",
+  "version": "0.1.0",
+  "description": "An enhanced path module",
+  "license": "GPL-3.0",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "run-coveralls": "NODE_ENV=unit nyc report --reporter=text-lcov | coveralls",
+    "test": "yarn lint && yarn test:unit && yarn test:coveralls && yarn test:integration",
+    "test:coveralls": "yarn if-env-run CI yarn run-coveralls",
+    "test:integration": "NODE_ENV=integration yarn nyc mocha",
+    "test:unit": "NODE_ENV=unit yarn nyc mocha"
+  },
+  "repository": "https://www.github.com/0time/en-path",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@0ti.me/test-deps": "^0.1.16"
+  }
+}
